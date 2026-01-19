@@ -15,10 +15,6 @@
 \school(fr):={Faculty of Sciences}
 \school(it):={Faculty of Sciences}
 
-% Department field
-\ntdepartment(pt){Departamento de Nome do Departamento}
-\ntdepartment(en){Department of Name of the Department}
-
 % Specialization field
 \specialization(pt):={Especialidade}
 \specialization(en):={Specialization}
@@ -128,7 +124,8 @@
   {\ToUppercase{\theuniversity(\@LANG@COVER)}}\\[2mm]%
   {\ToUppercase{\theschool(\@LANG@COVER)}}\\[2mm]%
   \ifmscdoc
-     {{\ToUppercase{\thedepartment(\@LANG@COVER)}}}%
+     {\ToUppercase{\thedepartmentofstring(\@LANG@COVER)}
+      \ToUppercase{\GetDepartment(\@LANG@COVER)}}%
     {}%
 }
 
@@ -235,5 +232,5 @@
 \ntaddtocover[vspace=1.4cm]{1-1,2-1}{%
   % \fontseries{mc}
   \fontsize{14}{14}\selectfont%
-    \printisodate{\thentdocdate(submission,year)}%
+    \printisodate{\GetDocDate(submission,year)}%
 }
